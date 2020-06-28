@@ -18,7 +18,8 @@ class Borrower extends CI_Controller {
 	public function index()
 	{
 		$this->data['data'] = $this->borrower_model->all();
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Borrowers List";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}
@@ -35,7 +36,8 @@ class Borrower extends CI_Controller {
 	public function edit($id)
 	{
 		$this->data['borrower'] = $this->borrower_model->get($id);
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Edit Borrower";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 	}
 

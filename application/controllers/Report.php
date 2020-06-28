@@ -19,15 +19,16 @@ class Report extends CI_Controller {
 	public function index()
 	{
 
-		$this->data['data'] = $this->collection_model->collection_today();
-		$this->data['borrowers'] = $this->borrower_model->all();
-		$this->data['loans'] = $this->loan_model->all();
-		$this->data['total_collection_today'] = $this->collection_model->total_collection_today();
-		$this->data['total_payers_today'] = $this->collection_model->total_payers_today();
+		// $this->data['data'] = $this->collection_model->collection_today();
+		// $this->data['borrowers'] = $this->borrower_model->all();
+		// $this->data['loans'] = $this->loan_model->all();
+		// $this->data['total_collection_today'] = $this->collection_model->total_collection_today();
+		// $this->data['total_payers_today'] = $this->collection_model->total_payers_today();
 		// echo "<pre>";
 		// print_r($this->data['loans']);
 		// exit();
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Reports List";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}

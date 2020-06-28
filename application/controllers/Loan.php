@@ -18,9 +18,25 @@ class Loan extends CI_Controller {
 
 	public function index()
 	{
+		
+		$this->data['breadcrumb'] = "Loan List";
+
 		$this->data['capitals'] = $this->capital_model->all();
 		$this->data['borrowers'] = $this->borrower_model->all();
 		$this->data['data'] = $this->loan_model->all();
+		$this->load->view('parts/header',$this->data);
+		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
+		
+	}
+
+	public function edit($id)
+	{
+		$this->data['breadcrumb'] = "Edit Loan";
+
+		$this->data['capitals'] = $this->capital_model->all();
+		$this->data['borrowers'] = $this->borrower_model->all();
+		$this->data['data'] = $this->loan_model->all();
+		$this->data['loan_data'] = $this->loan_model->get($id);
 		$this->load->view('parts/header');
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
@@ -28,6 +44,8 @@ class Loan extends CI_Controller {
 
 	public function detail($id)
 	{
+		$this->data['breadcrumb'] = "Loan Details";
+
 		$this->data['capitals'] = $this->capital_model->all();
 		$this->data['borrowers'] = $this->borrower_model->all();
 		$this->data['loan'] = $this->loan_model->loan($id);
@@ -61,12 +79,6 @@ class Loan extends CI_Controller {
 		redirect(base_url($this->controller));
 	}
 
-	public function edit($id)
-	{
-		$this->data['borrower'] = $this->borrower_model->get($id);
-		$this->load->view('parts/header');
-		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
-	}
 
 	public function edit_save()
 	{

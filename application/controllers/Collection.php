@@ -23,6 +23,7 @@ class Collection extends CI_Controller {
 		}else{
 			$selected_date = $current_date;
 		}
+		
 
 		$this->data['data'] = $this->collection_model->collection_today($selected_date);
 		$this->data['borrowers'] = $this->borrower_model->all();
@@ -34,7 +35,8 @@ class Collection extends CI_Controller {
 		// echo "<pre>";
 		// print_r($this->data['loans']);
 		// exit();
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Collection List";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}
@@ -75,7 +77,8 @@ class Collection extends CI_Controller {
 		// echo "<pre>";
 		// print_r($this->data['collection']);
 		// exit();
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Edit Collection";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}

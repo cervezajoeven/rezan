@@ -19,16 +19,18 @@ class Loaner extends CI_Controller {
 	public function index()
 	{
 		$this->data['data'] = $this->model->all();
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Loaners List";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}
 
 	public function edit($id)
 	{
-		$view_data['data'] = $this->model->get($id);
-		$this->load->view('parts/header');
-		$this->load->view($this->controller."/".__FUNCTION__,$view_data);
+		$this->data['data'] = $this->model->get($id);
+		$this->data['breadcrumb'] = "Edit Loaner";
+		$this->load->view('parts/header',$this->data);
+		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 	}
 
 	public function save()

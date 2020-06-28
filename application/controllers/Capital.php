@@ -19,7 +19,8 @@ class Capital extends CI_Controller {
 	{
 		$this->data['loaners'] = $this->loaner_model->all();
 		$this->data['data'] = $this->capital_model->total_loan();
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Capital List";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}
@@ -39,7 +40,9 @@ class Capital extends CI_Controller {
 	{
 		$this->data['loaners'] = $this->loaner_model->all();
 		$this->data['capital'] = $this->capital_model->get($id);
-		$this->load->view('parts/header');
+
+		$this->data['breadcrumb'] = "Capital Edit";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 	}
 
@@ -69,7 +72,8 @@ class Capital extends CI_Controller {
 		$this->data['loans'] = $this->loan_model->loans_list($id);
 		$this->data['data'] = $this->capital_model->total_loan();
 		$this->data['total_loan_list'] = $this->loan_model->total_loan_list($id);
-		$this->load->view('parts/header');
+		$this->data['breadcrumb'] = "Capital Logs";
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}
