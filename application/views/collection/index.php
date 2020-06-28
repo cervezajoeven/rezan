@@ -60,7 +60,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Current Date</label>
-                        <input type="date" class="form-control date" readonly="" required="" value="<?php echo date('Y-m-d H:i:s'); ?>" name="date">
+                        <input type="date" class="form-control date" readonly="" required="" value="<?php echo date('Y-m-d'); ?>" name="date">
                     </div>
                 </div>
                 <div class="col-md-6">
