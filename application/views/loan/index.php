@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <label>Expected Gives per Month</label>
-                            <input type="number" onkeyup="calculate_gives();" placeholder="2" value="2" min="1" class="form-control gives_per_month" name="gives_per_month">
+                            <input type="number" onkeyup="calculate_gives();calculate_gives_payable();" placeholder="2" value="2" min="1" class="form-control gives_per_month" name="gives_per_month">
                         </div>
                         <div class="form-group">
                             <label>Expected Term (Months)</label>
@@ -178,11 +178,11 @@
     function calculate_deadline(){
         var x = $(".term").val(); //or whatever offset
         var CurrentDate = new Date();
-        CurrentDate.setMonth(CurrentDate.getMonth() + x);
+        CurrentDate.setMonth(parseInt(CurrentDate.getMonth())+parseInt(x));
         var day = ("0" + CurrentDate.getDate()).slice(-2);
         var month = ("0" + (CurrentDate.getMonth() + 1)).slice(-2);
 
-        var today = CurrentDate.getFullYear()+"-"+(month)+"-"+(day) ;
+        var today = CurrentDate.getFullYear()+"-"+(month)+"-"+(day);
         $(".deadline").val(today);
     }
 
