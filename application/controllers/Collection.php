@@ -36,7 +36,8 @@ class Collection extends CI_Controller {
 	{
 		$data['loan_id'] = $_REQUEST['loan_id'];
 		$data['amount'] = $_REQUEST['amount'];
-		$data['date_created'] = $_REQUEST['date_created'];
+		$data['date'] = $_REQUEST['date'];
+		$data['date_created'] = $_REQUEST['date'];
 		
 		$this->model->save($data);
 

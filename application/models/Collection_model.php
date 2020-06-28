@@ -7,6 +7,7 @@ class Collection_model extends CI_Model {
         public function save($data)
         {
                 $this->name = $data['name'];
+                $this->date = $data['date'];
                 $this->date_created = $data['date'];
                 $this->db->insert($this->table, $data);
         }
