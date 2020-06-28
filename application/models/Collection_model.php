@@ -96,9 +96,9 @@ class Collection_model extends CI_Model {
                 $this->db->where("collection.date_created >",date("Y-m-d")." 00:00:00");
                 $this->db->order_by("collection.id","desc");
                 $this->db->from($this->table);
-                // echo "<pre>";
-                // print_r($this->db->get()->result_array());
-                // exit;
+                echo "<pre>";
+                print_r(date("Y-m-d"));
+                exit;
                 return $this->db->get()->result_array();
         }
 
