@@ -44,7 +44,7 @@
     </div>
     
 </div>
-<form action="<?php echo base_url('collection/save'); ?>">
+<form action="<?php echo base_url('collection/edit_save/'.$collection['id']); ?>">
 
     <div class="card card-default">
         <div class="card-header">
@@ -57,10 +57,9 @@
         <!-- /.card-header -->
         <div class="card-body">
             <div class="row">
-
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Current Date</label>
+                        <label>Current Date </label>
                         <input type="date" class="form-control date" readonly="" required="" value="<?php echo date('Y-m-d'); ?>" name="date">
                     </div>
                 </div>
@@ -70,7 +69,7 @@
                         <select class="form-control select2 required loan_id" name="loan_id" required="required" style="width: 100%;">
                                 <option value="">- Please Select -</option>
                             <?php foreach ($loans as $loans_key => $loans_value): ?>
-                                <option value="<?php echo $loans_value['id'] ?>"><?php echo $loans_value['name'] ?> (₱ <?php echo $loans_value['amount'] ?>)</option>
+                                <option <?php if($collection['loan_id']==$loans_value['id']){ echo "selected"; } ?> value="<?php echo $loans_value['id'] ?>"><?php echo $loans_value['name'] ?> (₱ <?php echo $loans_value['amount'] ?>)</option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -79,7 +78,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Amount</label>
-                        <input type="number" class="form-control amount" required="" name="amount">
+                        <input type="number" class="form-control amount" required="" name="amount" value="<?php print_r($collection['amount']) ?>">
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -161,11 +160,4 @@
         $(".amount").attr("placeholder",loans_data[current_value].gives_payable);
 
     });
-    function edit_data(id){
-        window.location.href = "<?php echo base_url('collection/edit/') ?>"+id;
-    }
-
-    function delete_data(id){
-        window.location.href = "<?php echo base_url('collection/delete/') ?>"+id;
-    }
 </script>
