@@ -76,7 +76,7 @@
                             <img src="http://rezan.stepsmandaluyong.com/resources/edda.jpg" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">Edda Bacarro</a>
+                            <a href="#" class="d-block">Eda Bacarro</a>
                         </div>
                     </div>
 
