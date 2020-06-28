@@ -3,7 +3,7 @@
         
 
             <div class="card-header">
-                <h3 class="card-title"><?php echo $loan['name']; ?> (₱ <?php echo number_format($total_collection['amount']); ?>/₱ <?php echo number_format($loan['amount']); ?>)</h3>
+                <h3 class="card-title"><?php echo $loan['name']; ?> (₱ <?php echo number_format($total_collection['amount']); ?>/₱ <?php echo number_format($loan['expected_receivable']); ?>)</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -123,7 +123,7 @@
                         <tr>
                             <td><?php echo $data_value['name'] ?></td>
                             <td>₱ <?php echo number_format($data_value['amount']) ?></td>
-                            <td><?php echo date("F d, Y",strtotime($data_value['date_created'])) ?></td>
+                            <td><?php echo date("F d, Y",strtotime($data_value['date'])) ?></td>
                             <td>
                                 <button onclick="edit_data(<?php echo $data_value['id'] ?>)" class="btn btn-info form-control"><i class="fas fa-pen"></i>Edit</button>
                             </td>

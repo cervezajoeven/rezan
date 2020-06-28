@@ -87,14 +87,15 @@ class Collection_model extends CI_Model {
                 return $this->db->get()->result_array()[0];
         }
 
-        public function collection_today()
+        public function collection_today($date)
         {
                 $this->db->select("*, collection.id as id, collection.amount as amount, collection.date_created as date_created");
                 $this->db->join("loan","loan.id = collection.loan_id");
                 $this->db->join("borrower","borrower.id = loan.borrower_id");
                 $this->db->join("capital","capital.id = loan.capital_id");
                 $this->db->where("loan.deleted",0);
-                $this->db->where("collection.date_created >=",date("Y-m-d")." 00:00:00");
+                $this->db->where("collection.date >=",$date." 00:00:00");
+                $this->db->where("collection.date <=",$date." 23:59:59");
                 $this->db->where("collection.deleted",0);
                 $this->db->order_by("collection.id","desc");
                 $this->db->from($this->table);
@@ -104,27 +105,31 @@ class Collection_model extends CI_Model {
                 return $this->db->get()->result_array();
         }
 
-        public function total_collection_today()
+        public function total_collection_today($date)
         {
                 $this->db->select("SUM(collection.amount) as total_amount");
                 $this->db->join("loan","loan.id = collection.loan_id");
                 $this->db->join("borrower","borrower.id = loan.borrower_id");
                 $this->db->join("capital","capital.id = loan.capital_id");
                 $this->db->where("loan.deleted",0);
-                $this->db->where("collection.date_created >",date("Y-m-d")." 00:00:00");
+                $this->db->where("collection.date >=",$date." 00:00:00");
+                $this->db->where("collection.date <=",$date." 23:59:59");
+                $this->db->where("collection.deleted",0);
                 $this->db->order_by("collection.id","desc");
                 $this->db->from($this->table);
                 return $this->db->get()->result_array()[0]['total_amount'];
         }
 
-        public function total_payers_today()
+        public function total_payers_today($date)
         {
                 $this->db->select("*");
                 $this->db->join("loan","loan.id = collection.loan_id");
                 $this->db->join("borrower","borrower.id = loan.borrower_id");
                 $this->db->join("capital","capital.id = loan.capital_id");
                 $this->db->where("loan.deleted",0);
-                $this->db->where("collection.date_created >",date("Y-m-d")." 00:00:00");
+                $this->db->where("collection.date >=",$date." 00:00:00");
+                $this->db->where("collection.date <=",$date." 23:59:59");
+                $this->db->where("collection.deleted",0);
                 $this->db->group_by("borrower_id");
                 $this->db->order_by("collection.id","desc");
                 $this->db->from($this->table);

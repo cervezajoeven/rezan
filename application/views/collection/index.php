@@ -5,7 +5,7 @@
             <div class="inner">
                 <h3>₱ <?php echo number_format($total_collection_today)?></h3>
 
-                <p>Collection Today</p>
+                <p>Total Collection</p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -20,7 +20,7 @@
             <div class="inner">
                 <h3><?php echo count($data)?></h3>
 
-                <p>Number of Payments Today</p>
+                <p>Number of Payments</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -34,7 +34,7 @@
             <div class="inner">
                 <h3><?php echo count($total_payers_today)?></h3>
 
-                <p>Number of Payers Today</p>
+                <p>Number of Payers</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -44,7 +44,7 @@
     </div>
     
 </div>
-<form action="<?php echo base_url('collection/save'); ?>">
+<form action="<?php echo base_url('collection/save/'.$selected_date); ?>">
 
     <div class="card card-default">
         <div class="card-header">
@@ -60,8 +60,8 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Current Date</label>
-                        <input type="date" class="form-control date" readonly="" required="" value="<?php echo date('Y-m-d'); ?>" name="date">
+                        <label>Date</label>
+                        <input type="date" class="form-control date" required="" value="<?php echo $selected_date; ?>" name="date">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -100,7 +100,7 @@
 </form>
 <div class="card card-default">
     <div class="card-header">
-        <h3 class="card-title">Recent Transactions</h3>
+        <h3 class="card-title">Transactions</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -162,13 +162,17 @@
 
     });
     function edit_data(id){
-        window.location.href = "<?php echo base_url('collection/edit/') ?>"+id;
+        window.location.href = "<?php echo base_url('collection/edit/') ?>"+id+"/"+"<?php echo $selected_date?>";
     }
 
     function delete_data(id){
         if(confirm("Are you sure you want to delete this record?")){
-            window.location.href = "<?php echo base_url('collection/delete/') ?>"+id;
+            window.location.href = "<?php echo base_url('collection/delete/') ?>"+id+"/"+"<?php echo $selected_date?>";
         }
         
     }
+    $(".date").change(function(){
+
+        window.location.href = "<?php echo base_url('collection/index/') ?>"+$(".date").val();
+    });
 </script>

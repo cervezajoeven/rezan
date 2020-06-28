@@ -44,7 +44,7 @@
     </div>
     
 </div>
-<form action="<?php echo base_url('collection/edit_save/'.$collection['id']); ?>">
+<form action="<?php echo base_url('collection/edit_save/'.$collection['id'].'/'.$selected_date); ?>">
 
     <div class="card card-default">
         <div class="card-header">
@@ -60,7 +60,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Current Date </label>
-                        <input type="date" class="form-control date" readonly="" required="" value="<?php echo date('Y-m-d'); ?>" name="date">
+                        <input type="date" class="form-control date" required="" value="<?php echo $selected_date; ?>" name="date">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -99,7 +99,7 @@
 </form>
 <div class="card card-default">
     <div class="card-header">
-        <h3 class="card-title">Recent Transactions</h3>
+        <h3 class="card-title">Transactions</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -161,12 +161,12 @@
 
     });
     function edit_data(id){
-        window.location.href = "<?php echo base_url('collection/edit/') ?>"+id;
+        window.location.href = "<?php echo base_url('collection/edit/') ?>"+id+"/"+"<?php echo $selected_date?>";
     }
 
     function delete_data(id){
         if(confirm("Are you sure you want to delete this record?")){
-            window.location.href = "<?php echo base_url('collection/delete/') ?>"+id;
+            window.location.href = "<?php echo base_url('collection/delete/') ?>"+id+"/"+"<?php echo $selected_date?>";
         }
         
     }
