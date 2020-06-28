@@ -93,12 +93,12 @@ class Collection_model extends CI_Model {
                 $this->db->join("borrower","borrower.id = loan.borrower_id");
                 $this->db->join("capital","capital.id = loan.capital_id");
                 $this->db->where("loan.deleted",0);
-                $this->db->where("collection.date_created >",date("Y-m-d")." 00:00:00");
+                $this->db->where("collection.date_created >=",date("Y-m-d")." 00:00:00");
                 $this->db->order_by("collection.id","desc");
                 $this->db->from($this->table);
-                echo "<pre>";
-                print_r(date("Y-m-d"));
-                exit;
+                // echo "<pre>";
+                // print_r(date("Y-m-d"));
+                // exit;
                 return $this->db->get()->result_array();
         }
 
