@@ -73,7 +73,7 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="https://scontent.fmnl3-1.fna.fbcdn.net/v/t1.0-9/s960x960/46123698_2188660037820100_1730235001192054784_o.jpg?_nc_cat=104&_nc_ohc=Njw8stA5mBYAX8W-7yW&_nc_ht=scontent.fmnl3-1.fna&_nc_tp=1002&oh=bbffb5b229ed73c1ac288594e7d35abf&oe=5E8EC473" class="img-circle elevation-2" alt="User Image">
+                            <img src="https://scontent.fmnl3-2.fna.fbcdn.net/v/t1.0-1/p160x160/46123698_2188660037820100_1730235001192054784_o.jpg?_nc_cat=104&_nc_sid=dbb9e7&_nc_eui2=AeEO5BsC4BFmQVwqb-bq7OEbvYq41MohbiS9irjUyiFuJGJONli2RW-CZ1JTMs4iF2peIjJKg5OkBJ2HNGxMdMmF&_nc_ohc=L4Vh-aVXLw8AX8YEMor&_nc_ht=scontent.fmnl3-2.fna&_nc_tp=6&oh=dca2b098e43cd6cdd6c189dd17389597&oe=5F1E6BD1" alt="User Image">
                         </div>
                         <div class="info">
                             <a href="#" class="d-block">Edda Bacarro</a>
