@@ -160,4 +160,14 @@
         $(".amount").attr("placeholder",loans_data[current_value].gives_payable);
 
     });
+    function edit_data(id){
+        window.location.href = "<?php echo base_url('collection/edit/') ?>"+id;
+    }
+
+    function delete_data(id){
+        if(confirm("Are you sure you want to delete this record?")){
+            window.location.href = "<?php echo base_url('collection/delete/') ?>"+id;
+        }
+        
+    }
 </script>

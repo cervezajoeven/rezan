@@ -72,6 +72,7 @@ class Collection_model extends CI_Model {
                 $this->db->join('loan', 'collection.loan_id = loan.id');
                 $this->db->join('borrower', 'loan.borrower_id = borrower.id');
                 $this->db->where("loan_id",$id);
+                $this->db->where("collection.deleted",0);
                 return $this->db->get()->result_array();
         }
 
@@ -94,6 +95,7 @@ class Collection_model extends CI_Model {
                 $this->db->join("capital","capital.id = loan.capital_id");
                 $this->db->where("loan.deleted",0);
                 $this->db->where("collection.date_created >=",date("Y-m-d")." 00:00:00");
+                $this->db->where("collection.deleted",0);
                 $this->db->order_by("collection.id","desc");
                 $this->db->from($this->table);
                 // echo "<pre>";

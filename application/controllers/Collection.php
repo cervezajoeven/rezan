@@ -76,7 +76,7 @@ class Collection extends CI_Controller {
 	public function delete($id)
 	{
 
-		$this->model->delete($id);
+		var_dump($this->model->delete($id));
 
 		redirect(base_url($this->controller));
 	}

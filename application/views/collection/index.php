@@ -166,6 +166,9 @@
     }
 
     function delete_data(id){
-        window.location.href = "<?php echo base_url('collection/delete/') ?>"+id;
+        if(confirm("Are you sure you want to delete this record?")){
+            window.location.href = "<?php echo base_url('collection/delete/') ?>"+id;
+        }
+        
     }
 </script>
