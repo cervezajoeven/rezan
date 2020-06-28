@@ -54,7 +54,7 @@ class Loan extends CI_Controller {
 		// echo "<pre>";
 		// print_r($this->data['total_collection']);
 		// exit();
-		$this->load->view('parts/header');
+		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
 	}
