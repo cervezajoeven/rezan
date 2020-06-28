@@ -36,8 +36,8 @@
                         
 
                         <div class="form-group">
-                            <label>Current Date</label>
-                            <input type="date" value="<?php echo date('Y-m-d'); ?>" disabled="" class="form-control" name="amount">
+                            <label>Date</label>
+                            <input type="date" value="<?php echo date('Y-m-d'); ?>" class="form-control start_date" name="start_date" onchange="calculate_deadline();">
                         </div>
                         <div class="form-group">
                             <label>Amount</label>
@@ -115,6 +115,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Amount</th>
+                        <th>Date</th>
                         <th>Deadline</th>
                         <th>Details</th>
                         <th>Edit</th>
@@ -124,6 +125,7 @@
                         <tr>
                             <td><?php echo $data_value['name'] ?></td>
                             <td><?php echo $data_value['amount'] ?></td>
+                            <td><?php echo $data_value['start_date'] ?></td>
                             <td><?php echo date("F d, Y",strtotime($data_value['deadline'])) ?></td>
                             <td>
                                 <button onclick="detail_data(<?php echo $data_value['id'] ?>)" class="btn btn-primary form-control"><i class="fas fa-tasks"></i>Details</button>
@@ -177,7 +179,7 @@
 
     function calculate_deadline(){
         var x = $(".term").val(); //or whatever offset
-        var CurrentDate = new Date();
+        var CurrentDate = new Date($(".start_date").val());
         CurrentDate.setMonth(parseInt(CurrentDate.getMonth())+parseInt(x));
         var day = ("0" + CurrentDate.getDate()).slice(-2);
         var month = ("0" + (CurrentDate.getMonth() + 1)).slice(-2);

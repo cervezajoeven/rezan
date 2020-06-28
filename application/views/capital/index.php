@@ -65,6 +65,7 @@
                         <th>Name</th>
                         <th>Capital</th>
                         <th>Remarks</th>
+                        <th>Date</th>
                         <th>Report</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -74,6 +75,7 @@
                             <td><?php echo $data_value['name'] ?></td>
                             <td>₱ <?php echo number_format($data_value['amount']-$data_value['capital_used']) ?>/₱ <?php echo number_format($data_value['amount']) ?></td>
                             <td><?php echo $data_value['remarks'] ?></td>
+                            <td><?php echo date("F d, Y",strtotime($data_value['date_created'])) ?></td>
                             <td>
                                 <button onclick="log_data(<?php echo $data_value['id'] ?>)" class="btn btn-warning form-control"><i class="fas fa-tasks"></i>Logs</button>
                             </td>

@@ -2,7 +2,7 @@
     <form action="<?php echo base_url('loaner/edit_save'); ?>" method="POST" >
 
         <div class="card-header">
-            <h3 class="card-title">Edit Sponsor</h3>
+            <h3 class="card-title">Edit Loaner</h3>
 
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -23,7 +23,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
 
-                        <input type="submit" value="Edit Sponsor" class="form-control btn btn-success" name="">
+                        <input type="submit" value="Edit Loaner" class="form-control btn btn-success" name="">
                     </div>
                 </div>
                 
@@ -32,7 +32,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            Editing Sponsor
+            Editing Loaner
         </div>
     </form>
 </div>

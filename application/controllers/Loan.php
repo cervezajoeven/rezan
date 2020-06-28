@@ -43,6 +43,7 @@ class Loan extends CI_Controller {
 
 	public function save()
 	{
+		$data['start_date'] = $_REQUEST['start_date'];
 		$data['borrower_id'] = $_REQUEST['borrower_id'];
 		$data['capital_id'] = $_REQUEST['capital_id'];
 		$data['amount'] = $_REQUEST['amount'];
@@ -54,8 +55,8 @@ class Loan extends CI_Controller {
 		$data['deadline'] = $_REQUEST['deadline'];
 		$data['expected_receivable'] = $_REQUEST['expected_receivable'];
 		$data['interest'] = $_REQUEST['interest'];
-		
-		$this->model->save($data);
+
+		var_dump($this->model->save($data));
 
 		redirect(base_url($this->controller));
 	}
