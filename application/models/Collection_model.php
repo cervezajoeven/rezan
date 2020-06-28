@@ -105,6 +105,24 @@ class Collection_model extends CI_Model {
                 return $this->db->get()->result_array();
         }
 
+        public function collection_range($start_date="",$end_date="")
+        {
+                $this->db->select("*, collection.id as id, collection.amount as amount, collection.date_created as date_created");
+                $this->db->join("loan","loan.id = collection.loan_id");
+                $this->db->join("borrower","borrower.id = loan.borrower_id");
+                $this->db->join("capital","capital.id = loan.capital_id");
+                $this->db->where("loan.deleted",0);
+                $this->db->where("collection.date >=",$start_date." 00:00:00");
+                $this->db->where("collection.date <=",$end_date." 23:59:59");
+                $this->db->where("collection.deleted",0);
+                $this->db->order_by("collection.id","desc");
+                $this->db->from($this->table);
+                // echo "<pre>";
+                // print_r(date("Y-m-d"));
+                // exit;
+                return $this->db->get()->result_array();
+        }
+
         public function total_collection_today($date)
         {
                 $this->db->select("SUM(collection.amount) as total_amount");

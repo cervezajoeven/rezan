@@ -16,10 +16,17 @@ class Report extends CI_Controller {
 		$this->navigation = array("report","date_reports");
 	}
 
-	public function index()
+	public function index($start_date="",$end_date="")
 	{
+		if(!$start_date){
+			$start_date = date("Y-m-d")." 00:00:00";
+		}
+		if(!$end_date){
+			$end_date = date("Y-m-d")." 23:59:59";
+		}
 
-		// $this->data['data'] = $this->collection_model->collection_today();
+		$this->data['data'] = $this->collection_model->collection_range($start_date,$end_date);
+		$this->data['capital'] = $this->capital_model->all();
 		// $this->data['borrowers'] = $this->borrower_model->all();
 		// $this->data['loans'] = $this->loan_model->all();
 		// $this->data['total_collection_today'] = $this->collection_model->total_collection_today();
@@ -27,6 +34,7 @@ class Report extends CI_Controller {
 		// echo "<pre>";
 		// print_r($this->data['loans']);
 		// exit();
+		// echo '<pre>';print_r($this->data['capital']);exit();
 		$this->data['breadcrumb'] = "Reports List";
 		$this->load->view('parts/header',$this->data);
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);

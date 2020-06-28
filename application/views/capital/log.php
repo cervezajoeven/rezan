@@ -19,8 +19,8 @@
                     <?php foreach($loans as $data_key=>$data_value): ?>
                         <tr>
                             <td><?php echo $data_value['name'] ?></td>
-                            <td>₱ <?php echo $data_value['amount'] ?></td>
-                            <td><?php echo joeven_date($data_value['date_created']) ?></td>
+                            <td>₱ <?php echo number_format($data_value['amount']) ?></td>
+                            <td><?php echo joeven_date($data_value['start_date']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </table>

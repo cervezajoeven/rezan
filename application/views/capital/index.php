@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label>Remarks</label>
-                        <textarea required="" class="form-control" name="remarks" placeholder="Remarks lang diri tita"></textarea>
+                        <textarea required="" class="form-control" name="remarks" placeholder="Remarks and Notes"></textarea>
                     </div>
                
                 </div>

@@ -23,35 +23,38 @@
                             <label>Capital</label>
                             <select class="form-control">
                                 <option></option>
-                                <option></option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-12">
                         
-
-                       <table id="example1" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
+                                    <th>Date</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                            
-                                <tr>
-                                    <td>Joeven</td>
-                                    <td>1,000</td>
-                                </tr>
+                                <?php foreach ($data as $data_key => $data_value) : ?>
+                                    <tr>
+                                        <td><?php echo $data_value['name'] ?></td>
+                                        <td><?php echo pesos_sign(); ?> <?php echo number_format($data_value['amount']) ?></td>
+                                        <td><?php echo joeven_date($data_value['date']); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
+                                    <th>Date</th>
                                 </tr>
                             </tfoot>
-                      </table>
+                        </table>
                         
                         
                     </div>

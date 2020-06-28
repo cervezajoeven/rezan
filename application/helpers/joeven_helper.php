@@ -9,4 +9,8 @@ function joeven_date($date){
 	return date("F d, Y",strtotime($date));
 }
 
+function pesos_sign(){
+	return "₱";
+}
+
 ?>
