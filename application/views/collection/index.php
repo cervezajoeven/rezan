@@ -10,7 +10,7 @@
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
         </div>
     </div>
     <!-- ./col -->
@@ -25,7 +25,7 @@
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
         </div>
     </div>
     <div class="col-lg-3 col-6">
@@ -39,7 +39,7 @@
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
         </div>
     </div>
     
@@ -145,8 +145,9 @@
 
 <?php
     $json_loan = [];
+
     foreach ($loans as $loan_key => $loan_value) {
-        $json_loan[$loan_value['id']] = $loan_value;
+        $json_loan[$loan_value['id']]['gives_payable'] = $loan_value['gives_payable'];
     }
 
 ?>
